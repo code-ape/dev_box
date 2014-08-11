@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "dev-box"
   config.vm.synced_folder "salt_files/", "/srv/"
   config.vm.synced_folder "/Users/codeape/programming", "/home/vagrant/programming"
+  config.vm.network "forwarded_port", guest: 3000, host: 3000 
 
   config.vm.provision :salt do |salt|
     salt.minion_config = "salt_files/minion"
